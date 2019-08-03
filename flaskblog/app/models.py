@@ -43,5 +43,3 @@ class Post(db.Model):
 
     def __repr__(self):
         return F"Post('{self.title}','{self.date_posted}')"
-
-
