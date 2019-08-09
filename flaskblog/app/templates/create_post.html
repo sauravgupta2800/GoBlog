@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content%}
-<div class="content">
-    <form method="POST" action="">
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
         {{ form.hidden_tag()}}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">{{ legend }}</legend>
@@ -33,6 +33,15 @@
                 {{ form.content(class="form-control form-control-lg ") }}
 
                 {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
             </div>
         </fieldset>
         <div class="form-group">

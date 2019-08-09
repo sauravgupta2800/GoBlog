@@ -18,7 +18,77 @@
         <h2 class="article-title">{{ post.title }}</h2>
         <p class="article-content">{{ post.content }}</p>
     </div>
+    
 </article>
+
+{% if current_user.is_authenticated %}
+<div class="content">
+        <form method="POST" action="">
+            {{ form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+    
+                <div class="form-group">
+                    {{ form.body.label(class="form-control-label") }}
+                    {% if form.body.errors %}
+                    {{ form.body(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.body.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.body(class="form-control form-control-lg ") }}
+    
+                    {% endif %}
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+            LogIn is required to post the comments !
+    </div>
+{% endif %}
+
+
+<!-- .......................part2..................-->
+
+<ul class="comment-section">
+    {% for comment in comments.all() %}
+    <!-- <p>{{ comment.author.username }} {{ comment.author.image_file}}  {{ comment.date_posted.strftime("%m/%d/%Y, %H:%M:%S") }}  {{ comment.body }}</p> -->
+        {% if comment.author == post.author %}
+        <h5 style="color: rgb(71, 114, 170)">AUTHOR's POST</h5>
+        <li class="comment author-comment">
+            <div class="info">
+                <a href="{{ url_for('users.user_posts', username=comment.author.username) }}">{{ comment.author.username }}</a>
+                <span>{{ comment.date_posted.strftime("%m/%d/%Y, %H:%M:%S") }}</span>
+            </div>
+            <a class="avatar" href="{{ url_for('users.user_posts', username=comment.author.username) }}">
+                <img src="{{ url_for('static', filename='profile_pics/'+ comment.author.image_file)}}" width="35" alt="Profile Avatar" title="Anie Silverston" />
+            </a>
+            <p>{{ comment.body }}</p>
+        </li>
+        {% else %}
+        <li class="comment user-comment">
+                <div class="info">
+                    <a href="{{ url_for('users.user_posts', username=comment.author.username) }}">{{ comment.author.username }}</a>
+                    <span>{{ comment.date_posted.strftime("%m/%d/%Y, %H:%M:%S") }}</span>
+                </div>
+                <a class="avatar" href="{{ url_for('users.user_posts', username=comment.author.username) }}">
+                    <img src="{{ url_for('static', filename='profile_pics/'+ comment.author.image_file)}}" width="35" alt="Profile Avatar" title="Anie Silverston" />
+                </a>
+                <p>{{ comment.body }}</p>
+            </li>
+        {% endif %}
+    {%  endfor %}
+
+</ul>
+<!-- .....................end part2................... -->
+
+
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
     aria-hidden="true">
@@ -40,3 +110,63 @@
     </div>
 </div>
 {% endblock content %}
+
+
+<!-- 
+
+<div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                    <p class="text-secondary text-center">15 Minutes Ago</p>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Maniruzzaman Akash</strong></a>
+                        <span class="float-right"><i class="text-warning fa fa-star">A</i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star">B</i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star">C</i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star">D</i></span>
+    
+                   </p>
+                   <div class="clearfix"></div>
+                    <p>Lorem Ipsum is simply dummy text of the pr make Lorem Ipsum is simply dummy text of the pr make  </p>
+                    <p>
+                        <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
+                        <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- ---------Type 2 comments--------- -->
+
+    <!-- <ul class="comment-section">
+
+            <li class="comment user-comment">
+                <div class="info">
+                    <a href="#">Anie Silverston</a>
+                    <span>4 hours ago</span>
+                </div>
+                <a class="avatar" href="#">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" width="35" alt="Profile Avatar" title="Anie Silverston" />
+                </a>
+                <p>Lorem Ipsum is simply dummy text of the pr make Lorem Ipsum is simply dummy text of the pr makeLorem Ipsum is simply dummy text of the pr make Lorem Ipsum is simply dummy text of the pr makeLorem Ipsum is simply dummy text of the pr make Lorem Ipsum is simply dummy text of the pr make</p>
+            </li>
+        
+            <li class="comment author-comment">
+                <div class="info">
+                    <a href="#">Jack Smith</a>
+                    <span>3 hours ago</span>
+                </div>
+                <a class="avatar" href="#">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" width="35" alt="Profile Avatar" title="Jack Smith" />
+                </a>
+                <p>Lorem Ipsum is simply dummy text of the pr make Lorem Ipsum is simply dummy text of the pr make Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sem sit amet molestie portitor.</p>
+    
+            </li>
+        
+        </ul> -->
