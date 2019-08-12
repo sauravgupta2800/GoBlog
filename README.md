@@ -1,0 +1,84 @@
+# GoBlog
+## This full fledged project made during Interviewbit Hackathon month
+### *Front End* : HTML, CSS, Bootstrap
+### *Backend* : Python( Flask )
+### *DataBase* : SqlLite
+
+## How to run
+ - install projects file
+ - install following file in an environment:
+    - appnope==0.1.0
+    - astroid==2.2.5
+    - attrs==19.1.0
+    - backcall==0.1.0
+    - bcrypt==3.1.7
+    - bleach==3.1.0
+    - blinker==1.4
+    - cffi==1.12.3
+    - Click==7.0
+    - decorator==4.4.0
+    - defusedxml==0.6.0
+    - Django==2.2.4
+    - entrypoints==0.3
+    - Flask==1.1.1
+    - Flask-Bcrypt==0.7.1
+    - Flask-Login==0.4.1
+    - Flask-Mail==0.9.1
+    - Flask-SQLAlchemy==2.4.0
+    - Flask-WTF==0.14.2
+    - gunicorn==19.9.0
+    - image==1.5.27
+    - ipykernel==5.1.1
+    - ipython==7.6.1
+    - ipython-genutils==0.2.0
+    - isort==4.3.21
+    - itsdangerous==1.1.0
+    - jedi==0.14.1
+    - Jinja2==2.10.1
+    - json5==0.8.5
+    - jsonschema==3.0.1
+    - jupyter-client==5.3.1
+    - jupyter-core==4.5.0
+    - jupyterlab==1.0.2
+    - jupyterlab-server==1.0.0
+    - lazy-object-proxy==1.4.1
+    - MarkupSafe==1.1.1
+    - mccabe==0.6.1
+    - mistune==0.8.4
+    - nbconvert==5.5.0
+    - nbformat==4.4.0
+    - notebook==6.0.0
+    - pandocfilters==1.4.2
+    - parso==0.5.1
+    - pexpect==4.7.0
+    - pickleshare==0.7.5
+    - Pillow==6.1.0
+    - prometheus-client==0.7.1
+    - prompt-toolkit==2.0.9
+    - ptyprocess==0.6.0
+    - pycparser==2.19
+    - Pygments==2.4.2
+    - pylint==2.3.1
+    - pylint-flask==0.6
+    - pylint-plugin-utils==0.5
+    - pyrsistent==0.15.3
+    - python-dateutil==2.8.0
+    - pytz==2019.2
+    - pyzmq==18.0.2
+    - Send2Trash==1.5.0
+    - six==1.12.0
+    - SQLAlchemy==1.3.5
+    - sqlparse==0.3.0
+    - terminado==0.8.2
+    - testpath==0.4.2
+    - tornado==6.0.3
+    - traitlets==4.3.2
+    - typed-ast==1.4.0
+    - virtualenv==16.6.2
+    - wcwidth==0.1.7
+    - webencodings==0.5.1
+    - Werkzeug==0.15.4
+    - wrapt==1.11.2
+    - WTForms==2.2.1
+ - run the command in current working directory run.py
+ - https://goblog-flaskapp.herokuapp.com/
