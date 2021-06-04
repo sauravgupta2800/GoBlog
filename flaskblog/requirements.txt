@@ -9,7 +9,7 @@ cffi==1.12.3
 Click==7.0
 decorator==4.4.0
 defusedxml==0.6.0
-Django==2.2.4
+Django==2.2.21
 entrypoints==0.3
 Flask==1.1.1
 Flask-Bcrypt==0.7.1
